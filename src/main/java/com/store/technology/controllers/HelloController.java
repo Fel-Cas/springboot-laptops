@@ -1,14 +1,18 @@
 package com.store.technology.controllers;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
 
+    @Value("${app.mensaje}")
+    String message;
     @GetMapping("/saludo")
     public String hello(){
-        return"Hola, ¿Cómo estás?";
+        System.out.println(message);
+        return"Hola, ¿Cómo estás?" ;
     }
 
     @GetMapping("/")
